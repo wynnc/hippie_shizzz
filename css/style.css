@@ -6,9 +6,17 @@
  * Made By MaterializeCSS.com
  */
 
+h1, h4 {
+  font-family: 'Work Sans', sans-serif;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
+}
+
+#logo-container {
+  height: 80%;
 }
 
 p {
