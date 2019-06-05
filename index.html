@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Daily Motivational Workout</title>
+
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container valign-wrapper">
+      <img src="images/daily-sweat.png" alt="Daily sweat logo" id="logo-container">
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center blue-grey-text text-darken-4">WELCOME TO YOUR NEW DAY</h1>
+        <div class="row center">
+          <h5 class="header col s12 l8 offset-l2 light">Here at the Daily Sweat we are working to break down
+            the barriers to establishing a healthy lifestyle. We take the guesswork out of getting started. Select your
+            style of workout below and get moving. </h5>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="images/background-lake.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center teal-text text-lighten-1"><i class="material-icons">spa</i></h2>
+            <h4 class="center">HOME PRACTICE</h4>
+
+            <p class="light">Like to sweat solo? We can track down a great workout for you to do from the comfort of
+              your own home. Select your workout below and just hit play!</p>
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose your type</option>
+                <option value="1">Yoga</option>
+                <option value="2">HIIT</option>
+                <option value="3">Bootcamp</option>
+              </select>
+              <!-- <label>Make a Selection</label> -->
+            </div>
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose your subtype</option>
+                <option value="1">Hatha</option>
+                <option value="2">Vinyasa</option>
+                <option value="3">Restorative</option>
+              </select>
+            </div>
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose your difficulty</option>
+                <option value="1">Easy</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Expert</option>
+              </select>
+            </div>
+
+            <div class="row center">
+              <button type="submit" id="youtube-api" class="btn-large waves-effect waves-light teal lighten-1">Get
+                Sweaty</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center teal-text text-lighten-1"><i class="material-icons">group</i></h2>
+            <h4 class="center">GROUP SETTING</h4>
+
+            <p class="light">Get your groove on in an studio gym. Let us know where you are and what you're into and we
+              can connect you to the top three spots to get you sweating.</p>
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose your type</option>
+                <option value="1">Yoga</option>
+                <option value="2">HIIT</option>
+                <option value="3">Bootcamp</option>
+              </select>
+              <!-- <label>Make a Selection</label> -->
+            </div>
+
+
+            <div class="input-field col s12">
+              <input placeholder="Zip Code" id="first_name" type="text" class="validate">
+              <!-- <label for="first_name">First Name</label> -->
+            </div>
+
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose distance</option>
+                <option value="1">5 miles</option>
+                <option value="2">15 miles</option>
+                <option value="3">25 miles</option>
+              </select>
+            </div>
+
+            <div class="row center">
+              <button type="submit" id="yelp-api" class="btn-large waves-effect waves-light teal lighten-1">Get
+                Sweaty</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center teal-text text-lighten-1"><i class="material-icons">terrain</i></h2>
+            <h4 class="center">OUTDOOR MEETUPS</h4>
+
+            <p class="light">Are you a nature nut? Luckily there are others like you! Join a meetup in the sunshine, make some friends, and get your sweat on. </p>
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose your type</option>
+                <option value="1">Hike</option>
+                <option value="2">Bike</option>
+                <option value="3">Run</option>
+              </select>
+              <!-- <label>Make a Selection</label> -->
+            </div>
+
+
+            <div class="input-field col s12">
+              <input placeholder="Zip Code" id="first_name" type="text" class="validate">
+              <!-- <label for="first_name">First Name</label> -->
+            </div>
+
+
+            <div class="input-field col s12">
+              <select>
+                <option value="" disabled selected>Choose distance</option>
+                <option value="1">5 miles</option>
+                <option value="2">15 miles</option>
+                <option value="3">25 miles</option>
+              </select>
+            </div>
+
+            <div class="row center">
+              <button type="submit" id="meetup-api" class="btn-large waves-effect waves-light teal lighten-1">Get
+                Sweaty</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light" id="quote-api">Motivational quote will live here when called from the API.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Your Workout Results</h4>
+          <div id="results"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
+            full time job. Any amount would help support and continue development on this project and is greatly
+            appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
