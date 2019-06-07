@@ -1,22 +1,22 @@
-$(document).ready(function(){
+$(document).ready(function () {
     // var fitnessType = $(".fitness-type").val();
     $('select').formSelect();
     // console.log("this is fitnessType: " + fitnessType);
-    $("select.fitness-type").change(function(){
+    $("select.fitness-type").change(function () {
         var fitnessType = $(this).children("option:selected").val();
         var subType1 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(2) span");
         var subType2 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(3) span");
         var subType3 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(4) span");
-        console.log(fitnessType);
-        if(fitnessType === "Bootcamp"){
+        // console.log(fitnessType);
+        if (fitnessType === "Bootcamp") {
             subType1.text("HIIT");
             subType2.text("Beach Bod");
             subType3.text("Crossfit");
-        }else if(fitnessType === "Dance"){
+        } else if (fitnessType === "Dance") {
             subType1.text("Hip Hop");
             subType2.text("Zumba");
             subType3.text("Belly Dance");
-        }else if(fitnessType === "Yoga"){
+        } else if (fitnessType === "Yoga") {
             subType1.text("Hatha");
             subType2.text("Vinyasa");
             subType3.text("Restorative");
@@ -24,9 +24,9 @@ $(document).ready(function(){
     });
 
     $.ajax({
-        url:"https://favqs.com/api/qotd",
+        url: "https://favqs.com/api/qotd",
         method: "GET"
-    }).then(function(response){
+    }).then(function (response) {
         $("#quote-api").text(response.quote.body);
         $(".author").text(response.quote.author);
         console.log(response);
@@ -34,4 +34,26 @@ $(document).ready(function(){
 
 
 
-  });
+});
+
+$(".inPerson").on("click", function () {
+
+    checkInp();
+})
+function checkInp() {
+    var x = $(".zipcode").val();
+    var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(x);;
+    console.log("this is the zip code " + x);
+    console.log("zip code is valid: " + isValidZip);
+    //   var x=document.forms["myForm"]["age"].value;
+    if (isNaN(x)) {
+        alert("Must input numbers for zip code.");
+        return false;
+
+    } else if (!isValidZip) {
+        alert("Please enter a valid zip code.");
+    }
+}
+
+$("#resluts").append(`<div id="name">CHECK CHECK CHECK</div>`);
+
