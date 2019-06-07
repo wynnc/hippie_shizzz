@@ -7,10 +7,10 @@ var zipCode = "";
 var category = "";
 // var zipCode = $("")
 
-$("#APIbtn").on("click", function () {
+$("#yelpAPIbtn").on("click", function () {
 
     zipCode = $(".zipcode").val()
-    fitnessType = $("select#fitnessType").val();
+    fitnessType = $("select#fitnessTypeYelp").val();
 
     whichType(fitnessType);
 
@@ -38,9 +38,9 @@ function whichType(categories) {
 
 
 
-var queryURL = "https://cors-anywhere.herokuapp.com/https://api..com/v3/businesses/search?location=" + zipCode + "&categories=" + category;
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + zipCode + "&categories=" + category;
 console.log(queryURL);
-// var queryURL = "https://cors-anywhere.herokuapp.com/https://api..com/v3/events?categories=sports-active-life&location=80232";
+// var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?categories=sports-active-life&location=80232";
 var apiKey = "goxoYCUXVSwcnKgBvWfHfc6wCMdXCqFKmgLEI7wuEbFCsumPG4mxKY5PIceV3YrEvGCa6Ssm94pk7VrCu-T_AQvVLt1q5ivHxy7anMWa4pSyPZJbUJ0bZmqBVtLyXHYx";
 
 
