@@ -98,24 +98,25 @@
               can connect you to the top three spots to get you sweating.</p>
 
             <div class="input-field col s12">
-              <select class="fitness-type" id="fitnessType">
+              <select class="fitness-type" id="fitnessTypeYelp">
                 <option value="" disabled selected>Choose your type</option>
                 <option>Yoga</option>
                 <option>Tai Chi</option>
                 <option>Bootcamp</option>
+                <option>Other</option>
               </select>
               <!-- <label>Make a Selection</label> -->
             </div>
 
 
             <div class="input-field col s12">
-              <input placeholder="Zip Code" id="zipCode" type="text" class="validate zipcode">
+              <input placeholder="Zip Code" id="zipCodeYelp" type="text" class="validate zipcode">
               <!-- <label for="first_name">First Name</label> -->
             </div>
 
 
             <div class="input-field col s12">
-              <select class="radius">
+              <select class="radius" id="yelpRadii">
                 <option value="" disabled selected>Choose distance</option>
                 <option>5 miles</option>
                 <option>15 miles</option>
@@ -124,7 +125,7 @@
             </div>
 
             <div class="row center">
-              <button type="submit" id="yelp-api" class="btn-large waves-effect waves-light teal lighten-1 inPerson">Get
+              <button type="submit" id="yelpAPIbtn" class="btn-large waves-effect waves-light teal lighten-1 inPerson">Get
                 Sweaty</button>
             </div>
           </div>
@@ -138,11 +139,11 @@
             <p class="light">Are you a nature nut? Luckily there are others like you! Join a meetup in the sunshine, make some friends, and get your sweat on. </p>
 
             <div class="input-field col s12">
-              <select class="fitness-type">
+              <select class="fitness-type" id="fitnessTypeMeetUp">
                 <option value="" disabled selected>Choose your type</option>
-                <option value="1">Yoga</option>
-                <option value="2">Hike</option>
-                <option value="3">Run</option>
+                <option>Yoga</option>
+                <option>Hike</option>
+                <option>Run</option>
               </select>
               <!-- <label>Make a Selection</label> -->
             </div>
@@ -155,11 +156,11 @@
 
 
             <div class="input-field col s12">
-              <select class="radius">
+              <select class="radius" id="meetUpRadius">
                 <option value="" disabled selected>Choose distance</option>
-                <option value="1">5 miles</option>
-                <option value="2">15 miles</option>
-                <option value="3">25 miles</option>
+                <option>5 miles</option>
+                <option>15 miles</option>
+                <option>25 miles</option>
               </select>
             </div>
 

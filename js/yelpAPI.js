@@ -7,10 +7,10 @@ var zipCode = "";
 var category = "";
 // var zipCode = $("")
 
-$("#yelp-api").on("click", function () {
+$("#yelpAPIbtn").on("click", function () {
 
     zipCode = $(".zipcode").val()
-    fitnessType = $("select#fitnessType").val();
+    fitnessType = $("select#fitnessTypeYelp").val();
 
     whichType(fitnessType);
 
