@@ -1,7 +1,7 @@
 $("#meetup-api").on("click", function () {
     $("#results").show().empty();
     var fitnessType = $("#fitnessTypeMeetUp").val();
-    var zip = $("#meetup-api-zipCode").val();
+    var zip = $("#meetup-api-zipcode").val();
     var radius = $("#meetUpRadius").find("option:selected").attr("data-value");
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/upcoming_events?zip=" + zip + "&radius=" + radius + "&text=" + fitnessType + "&page=3&fields=featured_photo,venue&key=47617177566fa7974787e43785e5a74";
     console.log(fitnessType);

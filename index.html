@@ -67,18 +67,18 @@
             <div class="input-field col s12">
               <select class="subFitness">
                 <option value="" disabled selected>Choose your subtype</option>
-                <option value="1">Hatha</option>
-                <option value="2">Vinyasa</option>
-                <option value="3">Restorative</option>
+                <option id="opt1"></option>
+                <option id="opt2"></option>
+                <option id="opt3"></option>
               </select>
             </div>
 
             <div class="input-field col s12">
               <select class="difficulty">
                 <option value="" disabled selected>Choose your difficulty</option>
-                <option value="1">Easy</option>
-                <option value="2">Intermediate</option>
-                <option value="3">Expert</option>
+                <option>Easy</option>
+                <option>Intermediate</option>
+                <option>Expert</option>
               </select>
             </div>
 
@@ -150,7 +150,7 @@
 
 
             <div class="input-field col s12">
-              <input placeholder="Zip Code" id="meetup-api-zipCode" type="text" class="validate zipcode">
+              <input placeholder="Zip Code" id="meetup-api-zipcode" type="text" class="validate zipcode">
               <!-- <label for="first_name">First Name</label> -->
             </div>
 
@@ -178,24 +178,23 @@
   </div>
 
 
-  <div class="parallax-container valign-wrapper">
+  <div class="parallax-container valign-wrapper" id="results-header">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <span></span>
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>Your Workout Results</h4>
         </div>
       </div>
     </div>
     <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
-  <div class="container">
+  <div class="container" id="results-container">
     <div class="section">
 
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Your Workout Results</h4>
           <div id="results"></div>
         </div>
       </div>
