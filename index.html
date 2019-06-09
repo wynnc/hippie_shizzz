@@ -66,19 +66,26 @@
 
             <div class="input-field col s12">
               <select class="subFitness">
+<<<<<<< HEAD
                 <option selected>Choose your subtype</option>
                 <option></option>
                 <option></option>
                 <option></option>
+=======
+                <option value="" disabled selected>Choose your subtype</option>
+                <option id="opt1"></option>
+                <option id="opt2"></option>
+                <option id="opt3"></option>
+>>>>>>> 34f54133309e60ce7ca76141942261038197298a
               </select>
             </div>
 
             <div class="input-field col s12">
               <select class="difficulty">
                 <option value="" disabled selected>Choose your difficulty</option>
-                <option value="1">Easy</option>
-                <option value="2">Intermediate</option>
-                <option value="3">Expert</option>
+                <option>Easy</option>
+                <option>Intermediate</option>
+                <option>Expert</option>
               </select>
             </div>
 
@@ -158,9 +165,9 @@
             <div class="input-field col s12">
               <select class="radius" id="meetUpRadius">
                 <option value="" disabled selected>Choose distance</option>
-                <option>5 miles</option>
-                <option>15 miles</option>
-                <option>25 miles</option>
+                <option data-value="5">5 miles</option>
+                <option data-value="15">15 miles</option>
+                <option data-value="25">25 miles</option>
               </select>
             </div>
 
@@ -178,24 +185,23 @@
   </div>
 
 
-  <div class="parallax-container valign-wrapper">
+  <div class="parallax-container valign-wrapper" id="results-header">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <span></span>
+            <h3><i class="mdi-content-send brown-text"></i></h3>
+            <h4>Your Workout Results</h4>
         </div>
       </div>
     </div>
     <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 2"></div>
   </div>
 
-  <div class="container">
+  <div class="container" id="results-container">
     <div class="section">
 
       <div class="row">
         <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Your Workout Results</h4>
           <div id="results"></div>
         </div>
       </div>
@@ -262,6 +268,7 @@
   <script src="js/app.js"></script>
   <script src="js/youtube-api.js"></script>
   <script src="js/yelpAPI.js"></script>
+  <script src="js/meetup-api.js"></script>
 
 </body>
 

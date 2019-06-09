@@ -27,6 +27,10 @@ p {
   color: #26a69a;
 }
 
+#results-header  {
+  height: 50px !important;
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
