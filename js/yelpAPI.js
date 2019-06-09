@@ -1,112 +1,118 @@
-// var name = "";
-// var address = "";
-// var phone = "";
-// var url = "";
-// var image = "";
+
 var zipCode = "";
 var category = "";
 var radius = "";
-// var description = "";
-
-
-
-
-// var zipCode = $("")
+var btnCounter = 0;
+var offsetVal = 3;
 
 $("#yelpAPI").on("click", function () {
+    btnCounter++;
+   
     $("#results").show().empty();
-    var str = $(".radius").val();
-    // var radius = str.split(" ");
-    console.log("this is the radius" + str);
 
-
-    zipCode = $("#yelpRadii").find("option:selected").attr("data-value");
+    zipCode = $(".zipcode").val()
+    radius = $("#yelpRadii").find("option:selected").attr("data-value");
+    radius = parseInt(radius);
+  
     fitnessType = $("select#fitnessTypeYelp").val();
-
+    
     whichType(fitnessType);
 
 
-function whichType(categories) {
-    switch (categories) {
-        case "Yoga":
-            category = "yoga"
-            
-            break;
-        case "Tai Chi":
-            category = "taichi"
-            break;
+    function whichType(categories) {
+        switch (categories) {
+            case "Yoga":
+                category = "yoga"
 
-        case "Bootcamp":
-            category = "bootcamps"
-            break;
+                break;
+            case "Tai Chi":
+                category = "taichi"
+                break;
 
-        case "Other":
-            category = "active"
-            break;
+            case "Bootcamp":
+                category = "bootcamps"
+                break;
 
-        default:
+            case "Other":
+                category = "active"
+                break;
 
-            category = "fitness"
-        // code block
-    }
-    return category;
-};
+            default:
 
+                category = "fitness"
+            // code block
+        }
+        return category;
+    };
 
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + zipCode + "&categories=" + category + "&limit=3";
 
-var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + zipCode + "&categories=" + category;
-// console.log(queryURL);
-// var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?categories=sports-active-life&location=80232";
-var apiKey = "goxoYCUXVSwcnKgBvWfHfc6wCMdXCqFKmgLEI7wuEbFCsumPG4mxKY5PIceV3YrEvGCa6Ssm94pk7VrCu-T_AQvVLt1q5ivHxy7anMWa4pSyPZJbUJ0bZmqBVtLyXHYx";
-
-
-$.ajax({
-    url: queryURL,
-    method: 'GET',
-    headers: {
-        'Authorization': 'Bearer ' + apiKey
-    },
-    crossDomain: true,
-    dataType: 'json',
-}).then(function (response) {
-     console.log(response);
-
-     $("#results").append($("<div>").addClass("row").attr("id", "yelpAPI-cards"));
-    for (var i = 0; i < 3; i++) {
-        // var newColumn = $("<col-md>")
-        var newCol = (`<div class='col s12 m4' />`)
-        var newCard = $("<div>").addClass("card");
-        var cardTitle = $("<span>").addClass("card-title");
-        var cardContent = $("<div>").addClass("card-content");
-        var img = $("<img>");
-        // var newPar = $("<p>")
-        var newCardImg = $("<div>").addClass("card-image");
-        var cardAction = $("<div>").addClass("card-action");
+    if (radius == 5 || radius == 10 || radius == 25) {
+        radius = parseInt((radius * 1609.344));
         
-
-        var name = response.businesses[i].name;
-        var image = response.businesses[i].image_url;
-        var url = response.businesses[i].url;
-        var address = response.businesses[i].location.display_address;
-        var phone = response.businesses[i].phone;
-        var description = response.businesses[i].description;
-
-        // cardContent.append(`<p id="phone">${phone}</p>`)
-
-        // newCard.append(`<div class='card-title' id="name">${name}</div>`)
-        $(img).attr("src", image);
-        $(newCardImg).append(img, cardTitle.text(name));
-        $(cardContent).append(address, phone, description)
-        // newPar.append();
-        // cardContent.append(newPar);
-        $(cardAction).append(`<a href=${url} id="url">${name}</a>`)
-        $(newCard).append(newCardImg, cardContent, cardAction);
-        $(newCol).append(newCard);
-        $("#yelpAPI-cards").append(newCol);
-
+        queryURL = queryURL + "&radius=" + radius;
+        
     }
 
+    if (btnCounter > 1){
+        queryURL = queryURL + "&offset=" + offsetVal;
+        offsetVal = offsetVal + 3;
+        
+    }
 
-})
+    var apiKey = "goxoYCUXVSwcnKgBvWfHfc6wCMdXCqFKmgLEI7wuEbFCsumPG4mxKY5PIceV3YrEvGCa6Ssm94pk7VrCu-T_AQvVLt1q5ivHxy7anMWa4pSyPZJbUJ0bZmqBVtLyXHYx";
+
+
+    $.ajax({
+        url: queryURL,
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + apiKey
+        },
+        crossDomain: true,
+        dataType: 'json',
+    }).then(function (response) {
+        console.log(response);
+
+        $("#results").append($("<div>").addClass("row").attr("id", "yelpAPI-cards"));
+        for (var i = 0; i < 3; i++) {
+            var name = response.businesses[i].name;
+            var image = response.businesses[i].image_url;
+            var url = response.businesses[i].url;
+            var address = response.businesses[i].location.display_address;
+            var phone = response.businesses[i].display_phone;
+            
+
+            let cardCol = $("<div>").addClass("col s12 m4")
+            let newCard = $("<div>").addClass("card")
+            let cardImgDiv = $("<div>").addClass("card-image")
+            let cardImg = $(`<img src=${image} id="image">`)
+            let titleHeader = $("<h5>").text(`${name}`)
+            
+            cardImgDiv.append(cardImg)
+            
+            newCard.append(cardImgDiv)
+            let cardContentDiv = $("<div>").addClass("card-content")
+            let addressP = $("<p>").text(`${address}`)
+            let phoneP = $("<p>").text(`${phone}`)
+
+            cardContentDiv.append(titleHeader)
+            cardContentDiv.append(addressP)
+            cardContentDiv.append(phoneP)
+            
+            newCard.append(cardContentDiv)
+            let cardAction = $("<div>").addClass("card-action")
+            let link = $("<a>").attr("href", `${url}`).text("Visit their site")
+            cardAction.append(link)
+            newCard.append(cardAction)
+            cardCol.append(newCard)
+
+
+            $("#results").append(cardCol);
+
+        }
+
+
+    })
 })
 
