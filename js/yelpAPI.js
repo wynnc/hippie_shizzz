@@ -1,24 +1,26 @@
-var name = "";
-var address = "";
-var phone = "";
-var url = "";
-var image = "";
+// var name = "";
+// var address = "";
+// var phone = "";
+// var url = "";
+// var image = "";
 var zipCode = "";
 var category = "";
 var radius = "";
+// var description = "";
 
 
 
 
 // var zipCode = $("")
 
-$("#yelpAPIbtn").on("click", function () {
+$("#yelpAPI").on("click", function () {
+    $("#results").show().empty();
     var str = $(".radius").val();
     // var radius = str.split(" ");
     console.log("this is the radius" + str);
 
 
-    zipCode = $(".zipcode").val()
+    zipCode = $("#yelpRadii").find("option:selected").attr("data-value");
     fitnessType = $("select#fitnessTypeYelp").val();
 
     whichType(fitnessType);
@@ -69,53 +71,42 @@ $.ajax({
 }).then(function (response) {
      console.log(response);
 
+     $("#results").append($("<div>").addClass("row").attr("id", "yelpAPI-cards"));
     for (var i = 0; i < 3; i++) {
         // var newColumn = $("<col-md>")
-        name = response.businesses[i].name
+        var newCol = (`<div class='col s12 m4' />`)
         var newCard = $("<div>").addClass("card");
-        $(newCard).append(`<div class='card-title' id="name">${name}</div>`)
-
-        image = response.businesses[i].image_url
-        var newCardImg = $("<div>").addClass("card-image");
-        $(newCardImg).append(`<img src=${image} id="image">`)
-
-
+        var cardTitle = $("<span>").addClass("card-title");
         var cardContent = $("<div>").addClass("card-content");
-        var newPar = $("<p>")
-        newPar.append(response.businesses[i].description);
-        cardContent.append(newPar);
+        var img = $("<img>");
+        // var newPar = $("<p>")
+        var newCardImg = $("<div>").addClass("card-image");
+        var cardAction = $("<div>").addClass("card-action");
         
-        address = response.businesses[i].location.display_address
-        $(newDiv).append(`<p id="address">${address}</p>`)
-        
-        
-        phone = response.businesses[i].phone
-        $(newDiv).append(`<p id="phone">${phone}</p>`)
 
-        url = response.businesses[i].url
-        $("#results").append(`<a href=${url} id="url">${name}</a>`)
-        $("#results").append(newCard);
+        var name = response.businesses[i].name;
+        var image = response.businesses[i].image_url;
+        var url = response.businesses[i].url;
+        var address = response.businesses[i].location.display_address;
+        var phone = response.businesses[i].phone;
+        var description = response.businesses[i].description;
 
-        
-        // $("#results").append(newCard);
-        // $(".results").append(nameResult);
+        // cardContent.append(`<p id="phone">${phone}</p>`)
+
+        // newCard.append(`<div class='card-title' id="name">${name}</div>`)
+        $(img).attr("src", image);
+        $(newCardImg).append(img, cardTitle.text(name));
+        $(cardContent).append(address, phone, description)
+        // newPar.append();
+        // cardContent.append(newPar);
+        $(cardAction).append(`<a href=${url} id="url">${name}</a>`)
+        $(newCard).append(newCardImg, cardContent, cardAction);
+        $(newCol).append(newCard);
+        $("#yelpAPI-cards").append(newCol);
+
     }
 
 
 })
 })
 
-
-{/* <div class="card">
-<div class="card-image">
-<img src="images/sample-1.jpg">
-<span class="card-title">Card Title</span>
-</div>
-<div class="card-content">
-<p>I am a very simple card. I am good at containing small bits of information.
-I am convenient because I require little markup to use effectively.</p>
-</div>
-<div class="card-action">
-<a href="#">This is a link</a>
-</div>
-</div> */}
