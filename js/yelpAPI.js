@@ -5,9 +5,18 @@ var url = "";
 var image = "";
 var zipCode = "";
 var category = "";
+var radius = "";
+
+
+
+
 // var zipCode = $("")
 
 $("#yelpAPIbtn").on("click", function () {
+    var str = $(".radius").val();
+    // var radius = str.split(" ");
+    console.log("this is the radius" + str);
+
 
     zipCode = $(".zipcode").val()
     fitnessType = $("select#fitnessTypeYelp").val();
@@ -28,6 +37,11 @@ function whichType(categories) {
         case "Bootcamp":
             category = "bootcamps"
             break;
+
+        case "Other":
+            category = "active"
+            break;
+
         default:
 
             category = "fitness"
@@ -39,7 +53,7 @@ function whichType(categories) {
 
 
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + zipCode + "&categories=" + category;
-console.log(queryURL);
+// console.log(queryURL);
 // var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?categories=sports-active-life&location=80232";
 var apiKey = "goxoYCUXVSwcnKgBvWfHfc6wCMdXCqFKmgLEI7wuEbFCsumPG4mxKY5PIceV3YrEvGCa6Ssm94pk7VrCu-T_AQvVLt1q5ivHxy7anMWa4pSyPZJbUJ0bZmqBVtLyXHYx";
 
@@ -53,20 +67,35 @@ $.ajax({
     crossDomain: true,
     dataType: 'json',
 }).then(function (response) {
-    console.log(response);
+     console.log(response);
+
     for (var i = 0; i < 3; i++) {
         // var newColumn = $("<col-md>")
         name = response.businesses[i].name
-        var newCard = $("<card>").attr("id='business' + i")
-        $(newCard).append(`<div class='card' id="name">${name}</div>`)
-        address = response.businesses[i].location.display_address
-        $("#results").append(`<div id="address">${address}</div>`)
-        phone = response.businesses[i].phone
-        $("#results").append(`<div id="phone">${phone}</div>`)
-        url = response.businesses[i].url
-        $("#results").append(`<link href=${url} id="url">${name}</link>`)
+        var newCard = $("<div>").addClass("card");
+        $(newCard).append(`<div class='card-title' id="name">${name}</div>`)
+
         image = response.businesses[i].image_url
-        $("#results").append(`<img src=${image} id="image">`)
+        var newCardImg = $("<div>").addClass("card-image");
+        $(newCardImg).append(`<img src=${image} id="image">`)
+
+
+        var cardContent = $("<div>").addClass("card-content");
+        var newPar = $("<p>")
+        newPar.append(response.businesses[i].description);
+        cardContent.append(newPar);
+        
+        address = response.businesses[i].location.display_address
+        $(newDiv).append(`<p id="address">${address}</p>`)
+        
+        
+        phone = response.businesses[i].phone
+        $(newDiv).append(`<p id="phone">${phone}</p>`)
+
+        url = response.businesses[i].url
+        $("#results").append(`<a href=${url} id="url">${name}</a>`)
+        $("#results").append(newCard);
+
         
         // $("#results").append(newCard);
         // $(".results").append(nameResult);
@@ -75,3 +104,18 @@ $.ajax({
 
 })
 })
+
+
+{/* <div class="card">
+<div class="card-image">
+<img src="images/sample-1.jpg">
+<span class="card-title">Card Title</span>
+</div>
+<div class="card-content">
+<p>I am a very simple card. I am good at containing small bits of information.
+I am convenient because I require little markup to use effectively.</p>
+</div>
+<div class="card-action">
+<a href="#">This is a link</a>
+</div>
+</div> */}
