@@ -28,7 +28,7 @@ function generateVideo() {
 
 
 $("#youtube-api").on("click", function () {
-    $("#results").show();
+    $("#results").empty().show();
     var type = $(".fitness-type").val();
     var subtype = $(".subFitness").val();
     var difficulty = $(".difficulty").val();
