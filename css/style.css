@@ -27,8 +27,13 @@ p {
   color: #26a69a;
 }
 
-#results-header  {
-  height: 50px !important;
+body > div.parallax-container#results-header  {
+  height: 150px;
+  min-height: 10px;
+}
+
+#results-header, #results-container {
+  display: none;
 }
 
 .parallax-container {
