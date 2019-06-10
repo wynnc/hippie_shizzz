@@ -56,7 +56,7 @@
 
             <div class="input-field col s12">
               <select class="fitness-type">
-                <option value="" disabled selected>Choose your type</option>
+                <option disabled selected>Choose your type</option>
                 <option>Yoga</option>
                 <option>Bootcamp</option>
                 <option>Dance</option>
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <div class="col s12 m4">
+        <div class="col s12 m4 meetup-form">
           <div class="icon-block">
             <h2 class="center teal-text text-lighten-1"><i class="material-icons">group</i></h2>
             <h4 class="center">GROUP SETTING</h4>
@@ -110,7 +110,7 @@
 
 
             <div class="input-field col s12">
-              <input placeholder="Zip Code" id="zipCodeYelp" type="text" class="validate zipcode">
+              <input placeholder="Zip Code" id="yelpAPI-zipCode" type="text" class="validate zipcode">
               <!-- <label for="first_name">First Name</label> -->
             </div>
 
@@ -118,14 +118,14 @@
             <div class="input-field col s12">
               <select class="radius" id="yelpRadii">
                 <option value="" disabled selected>Choose distance</option>
-                <option>5 miles</option>
-                <option>15 miles</option>
-                <option>25 miles</option>
+                <option data-value="5">5 miles</option>
+                <option data-value="15">15 miles</option>
+                <option data-value="25">25 miles</option>
               </select>
             </div>
 
             <div class="row center">
-              <button type="submit" id="yelpAPIbtn" class="btn-large waves-effect waves-light teal lighten-1 inPerson">Get
+              <button type="submit" id="yelpAPI" class="btn-large waves-effect waves-light teal lighten-1 inPerson">Get
                 Sweaty</button>
             </div>
           </div>
@@ -150,7 +150,7 @@
 
 
             <div class="input-field col s12">
-              <input placeholder="Zip Code" id="meetup-api-zipcode" type="text" class="validate zipcode">
+              <input placeholder="Zip Code" id="meetup-api-zipCode" type="text" class="validate zipcode">
               <!-- <label for="first_name">First Name</label> -->
             </div>
 
@@ -158,9 +158,9 @@
             <div class="input-field col s12">
               <select class="radius" id="meetUpRadius">
                 <option value="" disabled selected>Choose distance</option>
-                <option>5 miles</option>
-                <option>15 miles</option>
-                <option>25 miles</option>
+                <option data-value="5">5 miles</option>
+                <option data-value="15">15 miles</option>
+                <option data-value="25">25 miles</option>
               </select>
             </div>
 
@@ -194,7 +194,7 @@
     <div class="section">
 
       <div class="row">
-        <div class="col s12 center">
+        <div class="col s12 md12">
           <div id="results"></div>
         </div>
       </div>
@@ -261,6 +261,7 @@
   <script src="js/app.js"></script>
   <script src="js/youtube-api.js"></script>
   <script src="js/yelpAPI.js"></script>
+  <script src="js/meetup-api.js"></script>
 
 </body>
 
