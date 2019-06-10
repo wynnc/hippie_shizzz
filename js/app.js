@@ -50,24 +50,29 @@ $(document).ready(function () {
 
 });
 
-// $(".inPerson").on("click", function () {
 
-//     checkInp();
-// })
-// function checkInp() {
-//     var x = $(".zipcode").val();
-//     var isValidZip = /(^\d{5})|(^\d{5}-\d{4}$)/.test(x);;
-//     console.log("this is the zip code " + x);
-//     console.log("zip code is valid: " + isValidZip);
-//     //   var x=document.forms["myForm"]["age"].value;
-//     if (isNaN(x)) {
-//         alert("Must input numbers for zip code.");
-//         return false;
 
-//     } else if (!isValidZip) {
-//         alert("Please enter a valid zip code.");
-//     }
-// }
+$(".inPerson").on("click", function () {
+    var whichOne = ($(this).attr("id"));
+    // console.log(whichOne);
+    var x = $("#" + whichOne + "-zipCode").val();
+    // console.log(x);
+    // checkInp();
+})
 
-// $("#results").append(`<div id="name">CHECK CHECK CHECK</div>`);
+function checkInp(x) {
+    // var x = $(".zipcode").val().trim();
+    var isValidZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/.test(x);;
+    // console.log("this is the zip code " + x);
+    // console.log("zip code is valid: " + isValidZip);
+    //   var x=document.forms["myForm"]["age"].value;
+    if (isNaN(x)) {
+        alert("Must input numbers for zip code.");
+        return false;
+
+    } else if (!isValidZip) {
+        alert("Please enter a valid zip code.");
+    }
+}
+
 
