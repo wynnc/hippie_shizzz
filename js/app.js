@@ -73,5 +73,3 @@ function checkInp(x) {
         alert("Please enter a valid zip code.");
     }
 }
-
-
