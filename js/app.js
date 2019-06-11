@@ -42,7 +42,7 @@ $(document).ready(function () {
     }).then(function (response) {
         $("#quote-api").text(response.quote.body);
         $(".author").text(response.quote.author);
-        console.log(response);
+//         console.log(response);
     })
 
 
