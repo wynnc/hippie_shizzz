@@ -7,7 +7,9 @@ var offsetVal = 3;
 
 $("#yelpAPI").on("click", function () {
     btnCounter++;
-   
+    
+    $("#results-header").show();
+    $("#results-container").show();
     $("#results").show().empty();
 
     zipCode = $(".zipcode").val()
@@ -73,7 +75,7 @@ $("#yelpAPI").on("click", function () {
         dataType: 'json',
     }).then(function (response) {
         console.log(response);
-
+        
         $("#results").append($("<div>").addClass("row").attr("id", "yelpAPI-cards"));
         for (var i = 0; i < 3; i++) {
             var name = response.businesses[i].name;
@@ -84,19 +86,20 @@ $("#yelpAPI").on("click", function () {
             
 
             let cardCol = $("<div>").addClass("col s12 m4")
-            let newCard = $("<div>").addClass("card")
+            let newCard = $("<div>").addClass("card meetup-card")
             let cardImgDiv = $("<div>").addClass("card-image")
             let cardImg = $(`<img src=${image} id="image">`)
-            let titleHeader = $("<h5>").text(`${name}`)
+            let titleHeader = $("<span>").addClass("card-title").text(`${name}`)
             
             cardImgDiv.append(cardImg)
+            cardImgDiv.append(titleHeader)
             
             newCard.append(cardImgDiv)
             let cardContentDiv = $("<div>").addClass("card-content")
             let addressP = $("<p>").text(`${address}`)
             let phoneP = $("<p>").text(`${phone}`)
 
-            cardContentDiv.append(titleHeader)
+            // cardContentDiv.append(titleHeader)
             cardContentDiv.append(addressP)
             cardContentDiv.append(phoneP)
             
@@ -106,7 +109,6 @@ $("#yelpAPI").on("click", function () {
             cardAction.append(link)
             newCard.append(cardAction)
             cardCol.append(newCard)
-
 
             $("#results").append(cardCol);
 

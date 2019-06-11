@@ -1,5 +1,8 @@
 $("#meetup-api").on("click", function () {
 
+    $("#results-header").show();
+    $("#results-container").show();
+    
     var fitnessType = $("#fitnessTypeMeetUp").val();
     var zip = $("#meetup-api-zipcode").val();
     var radius = $("#meetUpRadius").find("option:selected").attr("data-value");
