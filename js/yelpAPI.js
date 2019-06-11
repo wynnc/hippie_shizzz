@@ -79,10 +79,6 @@ $("#yelpAPI").on("click", function () {
             var name = response.businesses[i].name;
             var image = response.businesses[i].image_url;
             var url = response.businesses[i].url;
-            // var address1 = response.businesses[i].location.address1;
-            // var addressCity = response.business[i].location.city;
-            // let addressState = response.business[i].location.state;
-            // let addressZip = response.business[i].location.zip_code;
             let address = response.businesses[i].location.display_address;
             let address1 = address[0];
             let address2 = address[1];
