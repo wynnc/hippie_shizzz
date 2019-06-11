@@ -72,14 +72,21 @@ $("#yelpAPI").on("click", function () {
         crossDomain: true,
         dataType: 'json',
     }).then(function (response) {
-        console.log(response);
-
+        // console.log(response);
+        
         $("#results").append($("<div>").addClass("row").attr("id", "yelpAPI-cards"));
         for (var i = 0; i < 3; i++) {
             var name = response.businesses[i].name;
             var image = response.businesses[i].image_url;
             var url = response.businesses[i].url;
-            var address = response.businesses[i].location.display_address;
+            // var address1 = response.businesses[i].location.address1;
+            // var addressCity = response.business[i].location.city;
+            // let addressState = response.business[i].location.state;
+            // let addressZip = response.business[i].location.zip_code;
+            let address = response.businesses[i].location.display_address;
+            let address1 = address[0];
+            let address2 = address[1];
+            
             var phone = response.businesses[i].display_phone;
             
 
@@ -93,11 +100,13 @@ $("#yelpAPI").on("click", function () {
             
             newCard.append(cardImgDiv)
             let cardContentDiv = $("<div>").addClass("card-content")
-            let addressP = $("<p>").text(`${address}`)
+            let addressP = $("<p>").text(`${address1}`)
+            let address2P = $("<p>").text(`${address2}`)
             let phoneP = $("<p>").text(`${phone}`)
 
             cardContentDiv.append(titleHeader)
             cardContentDiv.append(addressP)
+            cardContentDiv.append(address2P)
             cardContentDiv.append(phoneP)
             
             newCard.append(cardContentDiv)
