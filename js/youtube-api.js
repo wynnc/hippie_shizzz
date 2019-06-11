@@ -28,6 +28,8 @@ function generateVideo() {
 
 
 $("#youtube-api").on("click", function () {
+    $("#results-header").show();
+    $("#results-container").show();
     $("#results").empty().show();
     var type = $(".fitness-type").val();
     var subtype = $(".subFitness").val();

@@ -5,6 +5,7 @@
  *
  * Made By MaterializeCSS.com
  */
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:900&display=swap');
 
 h1, h4 {
   font-family: 'Work Sans', sans-serif;
@@ -27,8 +28,17 @@ p {
   color: #26a69a;
 }
 
-#results-header  {
-  height: 50px !important;
+body > div.parallax-container#results-header  {
+  height: 150px;
+  min-height: 10px;
+}
+
+#results-header, #results-container {
+  display: none;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: #26a69a;
 }
 
 .parallax-container {
@@ -47,8 +57,9 @@ p {
   }
 
   .meetup-card .card-title {
-    font-size: 18px;
+    font-size: 2vw;
     text-shadow: 2px 2px 4px #444;
+    font-family: 'Work Sans', sans-serif;
   }
 
   .meetup-card p {
@@ -63,7 +74,7 @@ p {
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
-    top: 40%;
+    /* top: 40%; */
   }
   #index-banner .section {
     top: 10%;
@@ -71,8 +82,22 @@ p {
 }
 
 @media only screen and (max-width : 600px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 10%;
+  }
+
   #index-banner .section {
     top: 0;
+  }
+
+  .meetup-card .card-title {
+    font-size: 5vw;
+  }
+
+  #logo-containter {
+    display: block;
+  margin: auto 0;
   }
 }
 
