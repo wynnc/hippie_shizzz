@@ -4,7 +4,6 @@ $(document).ready(function () {
     // console.log("this is fitnessType: " + fitnessType);
     $("select.fitness-type").change(function () {
         var fitnessType = $(this).children("option:selected").val();
-        var secondForm = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2)");
         var subType1 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(2) span");
         var subType2 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(3) span");
         var subType3 = $(".s12.m4:nth-of-type(1) .input-field:nth-of-type(2) li:nth-of-type(4) span");
@@ -43,7 +42,7 @@ $(document).ready(function () {
     }).then(function (response) {
         $("#quote-api").text(response.quote.body);
         $(".author").text(response.quote.author);
-        console.log(response);
+//         console.log(response);
     })
 
 
@@ -74,5 +73,3 @@ function checkInp(x) {
         alert("Please enter a valid zip code.");
     }
 }
-
-

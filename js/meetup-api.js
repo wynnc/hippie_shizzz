@@ -1,12 +1,14 @@
 $("#meetup-api").on("click", function () {
-    $("#results").show().empty();
+
+    $("#results-header").show();
+    $("#results-container").show();
+    
     var fitnessType = $("#fitnessTypeMeetUp").val();
     var zip = $("#meetup-api-zipcode").val();
     var radius = $("#meetUpRadius").find("option:selected").attr("data-value");
     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.meetup.com/find/upcoming_events?zip=" + zip + "&radius=" + radius + "&text=" + fitnessType + "&page=3&fields=featured_photo,venue&key=47617177566fa7974787e43785e5a74";
-    console.log(fitnessType);
-    console.log(zip);
-    console.log(radius);
+
+    // if any of the fields are not chosen, then do not get meetup info
     if (fitnessType === "null" || zip === "" || radius === "undefined") {
         return false;
     }
@@ -15,6 +17,8 @@ $("#meetup-api").on("click", function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
+        $("#results").show().empty();
+
         var events = response.events;
         console.log(events);
 
@@ -26,9 +30,9 @@ $("#meetup-api").on("click", function () {
             var picture;
             var description = events[i].description;
             var link = events[i].link;
-            var date = events[i].local_date;
-            var time = events[i].local_time;
-            var hostedBy = `<p>Hosted by ${events[i].group.name}.</p>`;
+            var date = `<p>Date: ${events[i].local_date}</p>`;
+            var time = `<p>Time: ${events[i].local_time}</p>`;
+            var hostedBy = `<p><i>Hosted by ${events[i].group.name}.</i></p>`;
             var locationName;
             var address;
             // console.log(description);
@@ -36,7 +40,7 @@ $("#meetup-api").on("click", function () {
                 locationName = `<p>Location: ${events[i].venue.name}</p>`;
                 address = `<div class="address"><p>${events[i].venue.address_1}</p><p>${events[i].venue.city}, ${events[i].venue.state}</p> <p>${events[i].venue.zip}</p></div>`;
             } else {
-                locationName = `<p>Check Link for Location info</p>`;
+                locationName = `<p>Check Link for Location Info</p>`;
                 address = "";
             }
 
@@ -44,12 +48,12 @@ $("#meetup-api").on("click", function () {
                 picture = events[i].featured_photo.photo_link;
                 console.log(picture)
             } else {
-                picture = "https://scontent-den4-1.xx.fbcdn.net/v/t1.0-9/19990550_320504011710462_6233984476058453731_n.jpg?_nc_cat=108&_nc_oc=AQk6F-lqU1i-jBnH3HJQ0sUGPmdg0xOoS4Z-4Q4xlAXCqfX9c9JCI_q0v8_4S_ClMQ4&_nc_ht=scontent-den4-1.xx&oh=1eefd341b4f38431c6f9c5123d5090b7&oe=5D5308FA";
+                picture = "images/background-moon.jpg";
                 console.log(picture)
             }
 
             var col = $("<div>").addClass("col s12 m4");
-            var card = $("<div>").addClass("card");
+            var card = $("<div>").addClass("card meetup-card");
             var cardImg = $("<div>").addClass("card-image");
             var img = $("<img>");
             var cardTitle = $("<span>").addClass("card-title");
@@ -59,14 +63,13 @@ $("#meetup-api").on("click", function () {
             // put the picture into the img
             img.attr("src", picture);
             cardImg.append(img, cardTitle.text(name));
-            cardContent.append(hostedBy, locationName, address);
+            cardContent.append(hostedBy, date, time, locationName, address);
 
             linkDiv.append($("<a>").attr("href", link).text("Event Info"));
             card.append(cardImg, cardContent, linkDiv);
             col.append(card);
-            $("#meetup-cards").append(col)
-            console.log(1);
+            $("#meetup-cards").append(col);
         }
-
     })
+
 });
