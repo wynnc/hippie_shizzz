@@ -21,7 +21,7 @@ nav .brand-logo {
 }
 
 p {
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 .sidenav-trigger {
@@ -57,7 +57,7 @@ body > div.parallax-container#results-header  {
   }
 
   .meetup-card .card-title {
-    font-size: 2vw;
+    font-size: 1.625rem;
     text-shadow: 2px 2px 4px #444;
     font-family: 'Work Sans', sans-serif;
   }
@@ -68,8 +68,10 @@ body > div.parallax-container#results-header  {
   }
 
  .address p {
-   padding: 0;
+   padding: 0 .5rem;
  }
+
+
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -78,6 +80,10 @@ body > div.parallax-container#results-header  {
   }
   #index-banner .section {
     top: 10%;
+  }
+
+  h1 {
+    font-size: 3.5rem;
   }
 }
 
@@ -97,7 +103,11 @@ body > div.parallax-container#results-header  {
 
   #logo-containter {
     display: block;
-  margin: auto 0;
+    margin: auto 0;
+  }
+
+  h1 {
+    font-size: 3.5rem;
   }
 }
 
